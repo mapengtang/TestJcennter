@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TestJCenter.iml" filepath="$PROJECT_DIR$/TestJCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestMaven.iml" filepath="$PROJECT_DIR$/TestMaven.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/localrepo/localrepo.iml" filepath="$PROJECT_DIR$/localrepo/localrepo.iml" />
     </modules>

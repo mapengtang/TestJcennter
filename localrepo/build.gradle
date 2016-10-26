@@ -48,9 +48,10 @@ uploadArchives {
         if(develop) {
             repository(url: localRepoUrl)
         } else {
-            repository(url: REMOTE_URL)
-            //替换成自己的用户名和密码
-            authentication(userName: "developer_test", password: "developer123")
+            repository(url: REMOTE_URL) {
+                //替换成自己的用户名和密码
+                authentication(userName: "developer_test", password: "developer123")
+            }
         }
 
         pom.groupId = PROJ_GROUP

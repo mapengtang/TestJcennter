@@ -35,5 +35,5 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.as-gradle.demo:testjcenter:1.0.1'
+    compile "${PROJ_GROUP}:${PROJ_ARTIFACTID}:${PROJ_VERSION}"
 }

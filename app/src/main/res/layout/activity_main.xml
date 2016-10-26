@@ -12,6 +12,7 @@
     tools:context="com.ma.testjcenter.MainActivity">
 
     <TextView
+        android:id="@+id/show_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"/>
