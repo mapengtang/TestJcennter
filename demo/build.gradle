@@ -1,24 +1,17 @@
-apply plugin: 'com.android.application'
-
-Properties localProperties = new Properties()
-def localFile = new File("${rootDir}/local.properties")
-if (localFile.canRead()) {
-    localProperties.load(localFile.newDataInputStream())
-    println "localProperties: " + localProperties
-} else {
-    println("not find params.properties")
-}
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
+
     defaultConfig {
-        applicationId "com.ma.testjcenter"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -35,5 +28,4 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.as-gradle.demo:testjcenter:1.0.1'
 }

@@ -1,4 +1,5 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
 
 Properties localProperties = new Properties()
 def localFile = new File("${rootDir}/local.properties")
@@ -8,17 +9,22 @@ if (localFile.canRead()) {
 } else {
     println("not find params.properties")
 }
+def localRepoUrl = localProperties.getProperty('LOCAL_REPO_URL')
+def develop = Boolean.parseBoolean(localProperties.getProperty('develop'))
+develop = (develop == null ? false : develop);
 
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
+
     defaultConfig {
-        applicationId "com.ma.testjcenter"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -35,5 +41,20 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.as-gradle.demo:testjcenter:1.0.1'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        if(develop) {
+            repository(url: localRepoUrl)
+        } else {
+            repository(url: REMOTE_URL)
+            //替换成自己的用户名和密码
+            authentication(userName: "developer_test", password: "developer123")
+        }
+
+        pom.groupId = PROJ_GROUP
+        pom.artifactId = PROJ_ARTIFACTID
+        pom.version = PROJ_VERSION
+    }
 }
